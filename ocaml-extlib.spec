@@ -1,5 +1,6 @@
 %define		_vendor_name	extlib
 Summary:	ExtLib for OCaml
+Summary(pl):	ExtLib dla OCamla
 Name:		ocaml-%{_vendor_name}
 Version:	1.3
 Release:	1
@@ -22,8 +23,22 @@ ExtLib is not directly related to OCaml authors (INRIA) although this
 library can be seen as a proposal for inclusion in the official
 distribution.
 
+%description -l pl
+ExtLib to projekt, którego celem jest dostarczenie kompletnej lecz
+ma³ej biblioteki standardowej dla jêzyka programowania OCaml. Celem
+tej biblioteki jest dodanie nowych funkcji do modu³ów biblioteki
+standardowej OCamla, zmodyfikowanie niektórych funkcji w celu
+uzyskania lepszej wydajno¶ci lub bezpieczeñstwa, a tak¿e dodanie
+nowych modu³ów, które powinny byæ przydatne dla przeciêtnego
+programisty OCamla.
+
+ExtLib nie jest bezpo¶rednio zwi±zany z autorami OCamla (INRIA), ale
+tê bibliotekê mo¿na traktowaæ jako propozycjê do w³±czenia do
+oficjalnej dystrybucji.
+
 %package devel
 Summary:	ExtLib for OCaml - development part
+Summary(pl):	ExtLib dla OCamla - czê¶æ programistyczna
 Group:		Development/Libraries
 %requires_eq	ocaml
 
@@ -42,11 +57,28 @@ distribution.
 This package contains files needed to develop OCaml programs using
 this library.
 
+%description devel -l pl
+ExtLib to projekt, którego celem jest dostarczenie kompletnej lecz
+ma³ej biblioteki standardowej dla jêzyka programowania OCaml. Celem
+tej biblioteki jest dodanie nowych funkcji do modu³ów biblioteki
+standardowej OCamla, zmodyfikowanie niektórych funkcji w celu
+uzyskania lepszej wydajno¶ci lub bezpieczeñstwa, a tak¿e dodanie
+nowych modu³ów, które powinny byæ przydatne dla przeciêtnego
+programisty OCamla.
+
+ExtLib nie jest bezpo¶rednio zwi±zany z autorami OCamla (INRIA), ale
+tê bibliotekê mo¿na traktowaæ jako propozycjê do w³±czenia do
+oficjalnej dystrybucji.
+
+Ten pakiet zawiera pliki potrzebne do tworzenia programów w OCamlu z
+u¿yciem tej biblioteki.
+
 %prep
 %setup -q -n %{_vendor_name}-%{version}
 
 %build
-%{__make} CC="%{__cc} %{rpmcflags} -fPIC" all opt
+%{__make} all opt \
+	CC="%{__cc} %{rpmcflags} -fPIC"
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -75,5 +107,5 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/ocaml/extlib
 %{_libdir}/ocaml/extlib/*.cm[ixa]*
 %{_libdir}/ocaml/extlib/*.a
-%{_examplesdir}/%{name}-%{version}
 %{_libdir}/ocaml/site-lib/extlib
+%{_examplesdir}/%{name}-%{version}
