@@ -4,7 +4,7 @@ Summary(pl):	ExtLib dla OCamla
 Name:		ocaml-%{_vendor_name}
 Version:	1.3
 Release:	1
-License:	GPL
+License:	LGPL + OCaml linking exception
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/ocaml-lib/%{_vendor_name}-%{version}.tgz
 BuildRequires:	ocaml >= 3.04-7
