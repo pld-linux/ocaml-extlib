@@ -3,11 +3,12 @@ Summary:	ExtLib for OCaml
 Summary(pl):	ExtLib dla OCamla
 Name:		ocaml-%{_vendor_name}
 Version:	1.4
-Release:	1
+Release:	2
 License:	LGPL + OCaml linking exception
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/ocaml-lib/%{_vendor_name}-%{version}.tgz
 # Source0-md5:	d53cf08e13e5b9487035bcc8af1165f2
+BuildRequires:	ocaml-findlib-devel
 BuildRequires:	ocaml >= 3.04-7
 %requires_eq	ocaml-runtime
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -83,21 +84,15 @@ u¿yciem tej biblioteki.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-
-install -d $RPM_BUILD_ROOT%{_libdir}/ocaml/extlib
-install *.cm[ixa]* *.a $RPM_BUILD_ROOT%{_libdir}/ocaml/extlib
-
-install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-
 install -d $RPM_BUILD_ROOT%{_libdir}/ocaml/site-lib/extlib
-cat > $RPM_BUILD_ROOT%{_libdir}/ocaml/site-lib/extlib/META <<EOF
-requires = ""
-version = "%{version}"
-directory = "+extlib"
-archive(byte) = "extlib.cma"
-archive(native) = "extlib.cmxa"
-linkopts = ""
-EOF
+
+OCAMLFIND_DESTDIR=$RPM_BUILD_ROOT%{_libdir}/ocaml %{__make} install
+
+mv $RPM_BUILD_ROOT%{_libdir}/ocaml/extlib/META \
+	$RPM_BUILD_ROOT%{_libdir}/ocaml/site-lib/extlib
+echo 'directory = "+extlib"' \
+	>> $RPM_BUILD_ROOT%{_libdir}/ocaml/site-lib/extlib/META
+rm -f $RPM_BUILD_ROOT%{_libdir}/ocaml/extlib/*.mli
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -109,4 +104,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/ocaml/extlib/*.cm[ixa]*
 %{_libdir}/ocaml/extlib/*.a
 %{_libdir}/ocaml/site-lib/extlib
-%{_examplesdir}/%{name}-%{version}
