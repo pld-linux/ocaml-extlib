@@ -1,10 +1,10 @@
 %define		_vendor_name	extlib
-%define		ocaml_ver	3.09.1
+%define		ocaml_ver	1:3.09.1
 Summary:	ExtLib for OCaml
 Summary(pl):	ExtLib dla OCamla
 Name:		ocaml-%{_vendor_name}
 Version:	1.4
-Release:	3
+Release:	4
 License:	LGPL + OCaml linking exception
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/ocaml-lib/%{_vendor_name}-%{version}.tgz
