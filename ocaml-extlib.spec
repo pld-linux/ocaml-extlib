@@ -1,7 +1,7 @@
 %define		_vendor_name	extlib
 %define		ocaml_ver	1:3.09.2
 Summary:	ExtLib for OCaml
-Summary(pl):	ExtLib dla OCamla
+Summary(pl.UTF-8):   ExtLib dla OCamla
 Name:		ocaml-%{_vendor_name}
 Version:	1.4
 Release:	5
@@ -26,22 +26,22 @@ ExtLib is not directly related to OCaml authors (INRIA) although this
 library can be seen as a proposal for inclusion in the official
 distribution.
 
-%description -l pl
-ExtLib to projekt, którego celem jest dostarczenie kompletnej lecz
-ma³ej biblioteki standardowej dla jêzyka programowania OCaml. Celem
-tej biblioteki jest dodanie nowych funkcji do modu³ów biblioteki
-standardowej OCamla, zmodyfikowanie niektórych funkcji w celu
-uzyskania lepszej wydajno¶ci lub bezpieczeñstwa, a tak¿e dodanie
-nowych modu³ów, które powinny byæ przydatne dla przeciêtnego
+%description -l pl.UTF-8
+ExtLib to projekt, ktÃ³rego celem jest dostarczenie kompletnej lecz
+maÅ‚ej biblioteki standardowej dla jÄ™zyka programowania OCaml. Celem
+tej biblioteki jest dodanie nowych funkcji do moduÅ‚Ã³w biblioteki
+standardowej OCamla, zmodyfikowanie niektÃ³rych funkcji w celu
+uzyskania lepszej wydajnoÅ›ci lub bezpieczeÅ„stwa, a takÅ¼e dodanie
+nowych moduÅ‚Ã³w, ktÃ³re powinny byÄ‡ przydatne dla przeciÄ™tnego
 programisty OCamla.
 
-ExtLib nie jest bezpo¶rednio zwi±zany z autorami OCamla (INRIA), ale
-tê bibliotekê mo¿na traktowaæ jako propozycjê do w³±czenia do
+ExtLib nie jest bezpoÅ›rednio zwiÄ…zany z autorami OCamla (INRIA), ale
+tÄ™ bibliotekÄ™ moÅ¼na traktowaÄ‡ jako propozycjÄ™ do wÅ‚Ä…czenia do
 oficjalnej dystrybucji.
 
 %package devel
 Summary:	ExtLib for OCaml - development part
-Summary(pl):	ExtLib dla OCamla - czê¶æ programistyczna
+Summary(pl.UTF-8):   ExtLib dla OCamla - czÄ™Å›Ä‡ programistyczna
 Group:		Development/Libraries
 %requires_eq	ocaml
 
@@ -60,21 +60,21 @@ distribution.
 This package contains files needed to develop OCaml programs using
 this library.
 
-%description devel -l pl
-ExtLib to projekt, którego celem jest dostarczenie kompletnej lecz
-ma³ej biblioteki standardowej dla jêzyka programowania OCaml. Celem
-tej biblioteki jest dodanie nowych funkcji do modu³ów biblioteki
-standardowej OCamla, zmodyfikowanie niektórych funkcji w celu
-uzyskania lepszej wydajno¶ci lub bezpieczeñstwa, a tak¿e dodanie
-nowych modu³ów, które powinny byæ przydatne dla przeciêtnego
+%description devel -l pl.UTF-8
+ExtLib to projekt, ktÃ³rego celem jest dostarczenie kompletnej lecz
+maÅ‚ej biblioteki standardowej dla jÄ™zyka programowania OCaml. Celem
+tej biblioteki jest dodanie nowych funkcji do moduÅ‚Ã³w biblioteki
+standardowej OCamla, zmodyfikowanie niektÃ³rych funkcji w celu
+uzyskania lepszej wydajnoÅ›ci lub bezpieczeÅ„stwa, a takÅ¼e dodanie
+nowych moduÅ‚Ã³w, ktÃ³re powinny byÄ‡ przydatne dla przeciÄ™tnego
 programisty OCamla.
 
-ExtLib nie jest bezpo¶rednio zwi±zany z autorami OCamla (INRIA), ale
-tê bibliotekê mo¿na traktowaæ jako propozycjê do w³±czenia do
+ExtLib nie jest bezpoÅ›rednio zwiÄ…zany z autorami OCamla (INRIA), ale
+tÄ™ bibliotekÄ™ moÅ¼na traktowaÄ‡ jako propozycjÄ™ do wÅ‚Ä…czenia do
 oficjalnej dystrybucji.
 
-Ten pakiet zawiera pliki potrzebne do tworzenia programów w OCamlu z
-u¿yciem tej biblioteki.
+Ten pakiet zawiera pliki potrzebne do tworzenia programÃ³w w OCamlu z
+uÅ¼yciem tej biblioteki.
 
 %prep
 %setup -q -n %{_vendor_name}-%{version}
