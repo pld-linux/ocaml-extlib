@@ -1,7 +1,7 @@
 %define		_vendor_name	extlib
 %define		ocaml_ver	1:3.09.2
 Summary:	ExtLib for OCaml
-Summary(pl.UTF-8):   ExtLib dla OCamla
+Summary(pl.UTF-8):	ExtLib dla OCamla
 Name:		ocaml-%{_vendor_name}
 Version:	1.4
 Release:	5
@@ -41,7 +41,7 @@ oficjalnej dystrybucji.
 
 %package devel
 Summary:	ExtLib for OCaml - development part
-Summary(pl.UTF-8):   ExtLib dla OCamla - część programistyczna
+Summary(pl.UTF-8):	ExtLib dla OCamla - część programistyczna
 Group:		Development/Libraries
 %requires_eq	ocaml
 
