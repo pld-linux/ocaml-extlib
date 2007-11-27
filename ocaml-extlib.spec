@@ -3,12 +3,12 @@
 Summary:	ExtLib for OCaml
 Summary(pl.UTF-8):	ExtLib dla OCamla
 Name:		ocaml-%{_vendor_name}
-Version:	1.4
-Release:	5
+Version:	1.5
+Release:	1
 License:	LGPL + OCaml linking exception
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/ocaml-lib/%{_vendor_name}-%{version}.tgz
-# Source0-md5:	d53cf08e13e5b9487035bcc8af1165f2
+Source0:	http://dl.sourceforge.net/ocaml-lib/%{_vendor_name}-%{version}.tar.gz
+# Source0-md5:	17808ae18d6b6e40637f0df8561583e8
 BuildRequires:	ocaml >= %{ocaml_ver}
 BuildRequires:	ocaml-findlib-devel
 %requires_eq	ocaml-runtime
