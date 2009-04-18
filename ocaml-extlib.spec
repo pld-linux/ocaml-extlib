@@ -4,7 +4,7 @@ Summary:	ExtLib for OCaml
 Summary(pl.UTF-8):	ExtLib dla OCamla
 Name:		ocaml-%{_vendor_name}
 Version:	1.5.1
-Release:	1
+Release:	2
 License:	LGPL + OCaml linking exception
 Group:		Libraries
 Source0:	http://ocaml-extlib.googlecode.com/files/%{_vendor_name}-%{version}.tar.gz
@@ -81,7 +81,7 @@ użyciem tej biblioteki.
 %setup -q -n %{_vendor_name}-%{version}
 
 %build
-%{__make} all opt \
+%{__make} -j1 all opt \
 	CC="%{__cc} %{rpmcflags} -fPIC"
 
 %install
