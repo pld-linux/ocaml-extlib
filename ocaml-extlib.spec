@@ -4,7 +4,7 @@ Summary:	ExtLib for OCaml
 Summary(pl.UTF-8):	ExtLib dla OCamla
 Name:		ocaml-%{_vendor_name}
 Version:	1.5.1
-Release:	2
+Release:	3
 License:	LGPL + OCaml linking exception
 Group:		Libraries
 Source0:	http://ocaml-extlib.googlecode.com/files/%{_vendor_name}-%{version}.tar.gz
