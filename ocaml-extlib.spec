@@ -1,14 +1,14 @@
-%define		_vendor_name	extlib
+%define		pkgname	extlib
 %define		ocaml_ver	1:3.09.2
 Summary:	ExtLib for OCaml
 Summary(pl.UTF-8):	ExtLib dla OCamla
-Name:		ocaml-%{_vendor_name}
-Version:	1.5.1
-Release:	3
+Name:		ocaml-%{pkgname}
+Version:	1.5.4
+Release:	1
 License:	LGPL + OCaml linking exception
 Group:		Libraries
-Source0:	http://ocaml-extlib.googlecode.com/files/%{_vendor_name}-%{version}.tar.gz
-# Source0-md5:	8dc2944cbf63141347956bd353893d75
+Source0:	http://ocaml-extlib.googlecode.com/files/%{pkgname}-%{version}.tar.gz
+# Source0-md5:	329041625309b9e49051e5b097a9185d
 URL:		http://code.google.com/p/ocaml-extlib/
 BuildRequires:	ocaml >= %{ocaml_ver}
 BuildRequires:	ocaml-findlib-devel
@@ -78,7 +78,7 @@ Ten pakiet zawiera pliki potrzebne do tworzenia programów w OCamlu z
 użyciem tej biblioteki.
 
 %prep
-%setup -q -n %{_vendor_name}-%{version}
+%setup -q -n %{pkgname}-%{version}
 
 %build
 %{__make} -j1 all opt \
