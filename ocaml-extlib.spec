@@ -112,7 +112,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE *.mli README.txt
 %dir %{_libdir}/ocaml/extlib
-%{_libdir}/ocaml/extlib/*.cm[ix]*
+%{_libdir}/ocaml/extlib/*.cm[ix]
 %{_libdir}/ocaml/extlib/*.cma
 %if %{with ocaml_opt}
 %{_libdir}/ocaml/extlib/*.a
