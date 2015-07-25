@@ -1,10 +1,19 @@
+#
+# Conditional build:
+%bcond_without	ocaml_opt	# skip building native optimized binaries (bytecode is always built)
+
+# not yet available on x32 (ocaml 4.02.1), remove when upstream will support it
+%ifnarch %{ix86} %{x8664} arm aarch64 ppc sparc sparcv9
+%undefine	with_ocaml_opt
+%endif
+
 %define		pkgname	extlib
 %define		ocaml_ver	1:3.09.2
 Summary:	ExtLib for OCaml
 Summary(pl.UTF-8):	ExtLib dla OCamla
 Name:		ocaml-%{pkgname}
 Version:	1.5.4
-Release:	2
+Release:	3
 License:	LGPL + OCaml linking exception
 Group:		Libraries
 Source0:	http://ocaml-extlib.googlecode.com/files/%{pkgname}-%{version}.tar.gz
@@ -81,7 +90,7 @@ użyciem tej biblioteki.
 %setup -q -n %{pkgname}-%{version}
 
 %build
-%{__make} -j1 all opt \
+%{__make} -j1 all %{?with_ocaml_opt:opt} \
 	CC="%{__cc} %{rpmcflags} -fPIC"
 
 %install
@@ -103,6 +112,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc LICENSE *.mli README.txt
 %dir %{_libdir}/ocaml/extlib
-%{_libdir}/ocaml/extlib/*.cm[ixa]*
+%{_libdir}/ocaml/extlib/*.cm[ix]*
+%{_libdir}/ocaml/extlib/*.cma
+%if %{with ocaml_opt}
 %{_libdir}/ocaml/extlib/*.a
+%{_libdir}/ocaml/extlib/*.cmxa
+%endif
 %{_libdir}/ocaml/site-lib/extlib
