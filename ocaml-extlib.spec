@@ -97,7 +97,7 @@ użyciem tej biblioteki.
 %patch0 -p1
 
 %build
-%{__make} -C src all %{?with_ocaml_opt:opt} \
+%{__make} -C src all %{?with_ocaml_opt:opt cmxs} \
        CC="%{__cc} %{rpmcflags} -fPIC"
 
 %install
