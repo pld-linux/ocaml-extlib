@@ -7,6 +7,10 @@
 %undefine	with_ocaml_opt
 %endif
 
+%if %{without ocaml_opt}
+%define		_enable_debug_packages	0
+%endif
+
 %define		pkgname	extlib
 %define		ocaml_ver	1:3.09.2
 Summary:	ExtLib for OCaml
@@ -20,6 +24,7 @@ Source0:	https://github.com/ygrek/ocaml-extlib/releases/download/%{version}/extl
 # Source0-md5:	7e0df072af4e2daa094e5936a661cb11
 Patch0:		no-git.patch
 URL:		https://github.com/ygrek/ocaml-extlib
+BuildRequires:	cppo
 BuildRequires:	ocaml >= %{ocaml_ver}
 BuildRequires:	ocaml-findlib-devel
 %requires_eq	ocaml-runtime
@@ -92,7 +97,8 @@ użyciem tej biblioteki.
 %patch0 -p1
 
 %build
-%{__make} build
+%{__make} -C src all %{?with_ocaml_opt:opt} \
+       CC="%{__cc} %{rpmcflags} -fPIC"
 
 %install
 rm -rf $RPM_BUILD_ROOT
