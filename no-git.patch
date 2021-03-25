@@ -1,0 +1,8 @@
+--- extlib-1.7.8/Makefile~	2021-01-20 00:51:04.000000000 +0100
++++ extlib-1.7.8/Makefile	2021-03-25 08:22:47.071582273 +0100
+@@ -1,5 +1,4 @@
+ 
+-VERSION:=$(shell git --git-dir=.git describe --always --long)
+ RELEASE:=1.7.8
+ 
+ ifndef VERSION
