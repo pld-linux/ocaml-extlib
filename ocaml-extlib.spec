@@ -17,7 +17,7 @@ Summary:	ExtLib for OCaml
 Summary(pl.UTF-8):	ExtLib dla OCamla
 Name:		ocaml-%{pkgname}
 Version:	1.7.8
-Release:	2
+Release:	3
 License:	LGPL + OCaml linking exception
 Group:		Libraries
 Source0:	https://github.com/ygrek/ocaml-extlib/releases/download/%{version}/extlib-%{version}.tar.gz
@@ -102,6 +102,7 @@ użyciem tej biblioteki.
 
 %install
 rm -rf $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_libdir}/ocaml
 
 OCAMLFIND_DESTDIR=$RPM_BUILD_ROOT%{_libdir}/ocaml %{__make} install
 
