@@ -1,9 +1,9 @@
 #
 # Conditional build:
-%bcond_without	ocaml_opt	# skip building native optimized binaries (bytecode is always built)
+%bcond_without	ocaml_opt	# native optimized binaries (bytecode is always built)
 
 # not yet available on x32 (ocaml 4.02.1), remove when upstream will support it
-%ifnarch %{ix86} %{x8664} arm aarch64 ppc sparc sparcv9
+%ifnarch %{ix86} %{x8664} %{arm} aarch64 ppc sparc sparcv9
 %undefine	with_ocaml_opt
 %endif
 
@@ -17,7 +17,7 @@ Summary:	ExtLib for OCaml
 Summary(pl.UTF-8):	ExtLib dla OCamla
 Name:		ocaml-%{pkgname}
 Version:	1.7.8
-Release:	3
+Release:	4
 License:	LGPL + OCaml linking exception
 Group:		Libraries
 Source0:	https://github.com/ygrek/ocaml-extlib/releases/download/%{version}/extlib-%{version}.tar.gz
@@ -28,6 +28,7 @@ BuildRequires:	cppo
 BuildRequires:	ocaml >= %{ocaml_ver}
 BuildRequires:	ocaml-findlib-devel
 %requires_eq	ocaml-runtime
+Conflicts:	ocaml-extlib-devel < 1.7.8-4
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -59,6 +60,7 @@ oficjalnej dystrybucji.
 Summary:	ExtLib for OCaml - development part
 Summary(pl.UTF-8):	ExtLib dla OCamla - część programistyczna
 Group:		Development/Libraries
+Requires:	%{name} = %{version}-%{release}
 %requires_eq	ocaml
 
 %description devel
@@ -104,24 +106,30 @@ użyciem tej biblioteki.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_libdir}/ocaml
 
-OCAMLFIND_DESTDIR=$RPM_BUILD_ROOT%{_libdir}/ocaml %{__make} install
+OCAMLFIND_DESTDIR=$RPM_BUILD_ROOT%{_libdir}/ocaml \
+%{__make} install
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/ocaml/extlib/*.mli
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files devel
+%files
 %defattr(644,root,root,755)
-%doc LICENSE src/*.mli README.md
+%doc LICENSE README.md
 %dir %{_libdir}/ocaml/extlib
 %{_libdir}/ocaml/extlib/META
-%{_libdir}/ocaml/extlib/*.cm[ix]
 %{_libdir}/ocaml/extlib/*.cma
+
+%files devel
+%defattr(644,root,root,755)
+%doc src/*.mli
+%{_libdir}/ocaml/extlib/*.cmi
 %{_libdir}/ocaml/extlib/*.cmt
 %{_libdir}/ocaml/extlib/*.cmti
 %if %{with ocaml_opt}
 %{_libdir}/ocaml/extlib/*.a
+%{_libdir}/ocaml/extlib/*.cmx
 %{_libdir}/ocaml/extlib/*.cmxa
 %{_libdir}/ocaml/extlib/*.cmxs
 %endif
