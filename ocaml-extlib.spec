@@ -20,6 +20,7 @@ Version:	1.7.8
 Release:	4
 License:	LGPL + OCaml linking exception
 Group:		Libraries
+#Source0Download: https://github.com/ygrek/ocaml-extlib/releases
 Source0:	https://github.com/ygrek/ocaml-extlib/releases/download/%{version}/extlib-%{version}.tar.gz
 # Source0-md5:	7e0df072af4e2daa094e5936a661cb11
 Patch0:		no-git.patch
