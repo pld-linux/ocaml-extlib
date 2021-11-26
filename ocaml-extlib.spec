@@ -121,6 +121,9 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/ocaml/extlib
 %{_libdir}/ocaml/extlib/META
 %{_libdir}/ocaml/extlib/*.cma
+%if %{with ocaml_opt}
+%attr(755,root,root) %{_libdir}/ocaml/extlib/*.cmxs
+%endif
 
 %files devel
 %defattr(644,root,root,755)
@@ -132,5 +135,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/ocaml/extlib/*.a
 %{_libdir}/ocaml/extlib/*.cmx
 %{_libdir}/ocaml/extlib/*.cmxa
-%{_libdir}/ocaml/extlib/*.cmxs
 %endif
