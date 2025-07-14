@@ -97,7 +97,7 @@ użyciem tej biblioteki.
 
 %prep
 %setup -q -n %{pkgname}-%{version}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__make} -C src all %{?with_ocaml_opt:opt cmxs} \
